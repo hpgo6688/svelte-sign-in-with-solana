@@ -27,20 +27,22 @@ export async function POST({ params, locals, request }: RequestEvent) {
         );
 
     const extractedTOTP = message.substring(message.length - 6, message.length);
- 
+
     const verifiedTOTP = speakeasy.totp.verify({
-        secret   : ENV_TOTP_SECRET,
-        encoding : "base32",
+        secret: ENV_TOTP_SECRET,
+        encoding: "base32",
         token: extractedTOTP
     });
+    console.log("ENV_TOTP_SECRET", ENV_TOTP_SECRET);
+    console.log("verifiedTOTP", verifiedTOTP);
 
-    if(!verifiedTOTP) {
+    if (!verifiedTOTP) {
         throw new Error("Invalid TOTP");
     }
 
-    if(!verifiedMessage) {
+    if (!verifiedMessage) {
         throw new Error("Invalid message");
     }
 
-    return json({});
+    return json({ success: true });
 }

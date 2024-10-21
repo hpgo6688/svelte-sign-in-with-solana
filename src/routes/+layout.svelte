@@ -1,56 +1,15 @@
-<WalletProvider
-    {localStorageKey}
-    {wallets}
-    autoConnect={false}
-/>
+<h1>Different way to Sign-in with solana</h1>
+<nav>
+    <ul>
+        <li><button on:click={() => goto('/dev')}>Go to Connection Solana Wallet by Direct</button></li>
+        <li><button on:click={() => goto('/org')}>Go to Connection Solana Wallet by wallet-adapter-ui</button></li>
+    </ul>
+</nav>
 
-<ConnectionProvider
-    {network}
-/>
-
-<WalletMultiButton>
-    Connect Wallet
-</WalletMultiButton>
-
-<!-- Important for wallet adapter to work in prod -->
 <script>
-    import { browser } from '$app/env';
-
-    import { Buffer } from 'buffer';
-    import { onMount } from 'svelte';
-    import { clusterApiUrl } from '@solana/web3.js';
-
-    import {
-        workSpace,
-        WalletProvider,
-        ConnectionProvider,
-        WalletMultiButton,
-    } from "@svelte-on-solana/wallet-adapter-ui";
-
-    import {
-        PhantomWalletAdapter,
-        BackpackWalletAdapter,
-        LedgerWalletAdapter,
-        SolflareWalletAdapter,
-        SolletExtensionWalletAdapter,
-    } from "@solana/wallet-adapter-wallets";
-
-    const wallets = [
-        new PhantomWalletAdapter(),
-        new BackpackWalletAdapter(),
-        new SolflareWalletAdapter(),
-        new SolletExtensionWalletAdapter(),
-        new LedgerWalletAdapter(),
-    ];
-
-    const localStorageKey = "walletAdapter";
-    const network = clusterApiUrl("mainnet-beta");
-
-    onMount(() => {
-        if(browser) {
-            window.Buffer = Buffer;
-        }
-    });
+    import { goto } from '$app/navigation';
 </script>
+
+
 
 <slot></slot>
