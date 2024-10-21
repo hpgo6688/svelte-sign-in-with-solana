@@ -3,6 +3,9 @@
 <div>
     {#if connected}
         <button on:click={disconnectWallet}>Disconnect Wallet</button>
+
+        <SendTx {wallet} {connected} />
+
     {:else}
         {#each wallets as wallet}
             <button on:click={() => connectWallet(wallet)}>Connect {wallet.name}</button>
@@ -23,6 +26,11 @@
 
 
  <script lang="ts">
+
+     import SendTx from '../../lib/components/SendTx.svelte';
+
+
+
     import { browser } from '$app/environment';
     import { onMount } from "svelte";
     import bs58 from "bs58";
@@ -43,6 +51,8 @@
         // new SolflareWalletAdapter(),
         // new LedgerWalletAdapter(),
     ];
+
+    console.log("wallets",wallets);
 
     const network = clusterApiUrl("mainnet-beta");
 

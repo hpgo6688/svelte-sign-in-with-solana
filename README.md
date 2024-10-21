@@ -44,3 +44,12 @@ You can preview the production build with `npm run preview`.
 ## Snapshot
 
 ![alt text](image.png)
+
+
+## Wallet address is not solana
+
+
+![alt text](image-2.png)
+
+
+![alt text](image-3.png)
