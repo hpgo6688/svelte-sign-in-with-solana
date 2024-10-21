@@ -53,3 +53,8 @@ You can preview the production build with `npm run preview`.
 
 
 ![alt text](image-3.png)
+
+
+## connect
+1. switch address
+2. switch chain
