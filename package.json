@@ -21,6 +21,10 @@
 		"vite": "^5.0.3"
 	},
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hpgo6688/svelte-sign-in-with-solana"
+	},
 	"dependencies": {
 		"@solana/wallet-adapter-wallets": "^0.19.32",
 		"@solana/web3.js": "^1.95.4",
