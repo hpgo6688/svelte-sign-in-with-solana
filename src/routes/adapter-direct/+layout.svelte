@@ -21,13 +21,19 @@
     {/each}
 </code>
 </pre>
+
+
+
+<SolanaBalance/>
 <slot></slot>
 
 
 
  <script lang="ts">
 
-     import SendTx from '../../lib/components/SendTx.svelte';
+     import SendTx from '../../lib/components/send-tx.svelte';
+     import SolanaBalance from '../../lib/components/solana-balance.svelte';
+     import Loading from '../../lib/components/loading.svelte';
 
 
 
